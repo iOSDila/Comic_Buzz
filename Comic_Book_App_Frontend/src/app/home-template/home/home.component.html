@@ -1,0 +1,49 @@
+<hr>
+<div class="container clickable">
+  <app-slide-show></app-slide-show>
+  <div class="card-deck">
+    <div class="card item-profile border rounded" routerLink="/home-template/profile">
+      <div class="card-body card-item-body">
+        <i class="material-icons background-round">
+          <img src="../../assets/images/user2.png" alt="Profile">
+        </i>
+      </div>
+      <div class="card-footer text-center">
+        Profile
+      </div>
+    </div>
+    <div class="card item-story border rounded" routerLink="/home-template/created-story">
+      <div class="card-body card-item-body">
+        <i class="material-icons background-round">
+          <img src="../../assets/images/book.png" alt="Created Story">
+        </i>
+      </div>
+      <div class="card-footer text-center">
+        Created Story
+      </div>
+    </div>
+    <div class="card item-create border rounded" (click)="navigateToCreateStory()">
+      <div class="card-body card-item-body">
+        <i class="material-icons background-round">
+          <img src="../../assets/images/add3.png" alt="Create New Story">
+        </i>
+      </div>
+      <div class="card-footer text-center">
+        Create New Story
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #createStory>
+  <div mat-dialog-title class="dialog-title">
+    {{status}}
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{message}}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-action">
+    <button mat-button class="dialog-btn" (click)="proceed()" cdkFocusInitial>YES</button>
+    <button mat-button class="dialog-btn" (click)="closeDialog()">NO</button>
+  </div>
+</ng-template>

@@ -1,0 +1,75 @@
+<div class="container clickable">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card card-profile">
+        <div class="card-avatar">
+          <a><img class="img" src="../../assets/images/cash.png"></a>
+          <h4 class="payment-title">Payment</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="payForm" (ngSubmit)="pay()">
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                  <label>Name on card</label>
+                  <input type="text" formControlName="name" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                  <label>Card Number</label>
+                  <input type="text" formControlName="card_num" class="form-control" placeholder="XXXX XXXX XXXX XXXX"
+                    [ngClass]="{ 'is-invalid': submitted && f.card_num.errors }" />
+                  <div *ngIf="submitted && f.card_num.errors" class="invalid-feedback">
+                    <div *ngIf="f.card_num.errors.required">Card Number is required</div>
+                    <div *ngIf="f.card_num.errors.minlength || f.card_num.errors.maxlength">Card Number must be 16
+                      numbers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                  <label>Expiry Date</label>
+                  <input type="text" formControlName="expiry" class="form-control" placeholder="MM/YY"
+                    [ngClass]="{ 'is-invalid': submitted && f.expiry.errors }" />
+                  <div *ngIf="submitted && f.expiry.errors" class="invalid-feedback">
+                    <div *ngIf="f.expiry.errors.required">Expiry Date is required</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                  <label matTooltip="The CVV is the 3-digit code printed on the back of the card"
+                    matTooltipPosition="right">CVV</label>
+                  <input type="text" formControlName="cvv" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.cvv.errors }" />
+                  <div *ngIf="submitted && f.cvv.errors" class="invalid-feedback">
+                    <div *ngIf="f.cvv.errors.required">CVV is required</div>
+                    <div *ngIf="f.card_num.errors.maxlength">CVV must be at 3 numbers</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 offset-md-5">
+                <div class="form-group mb-0">
+                  <button type="submit" class="btn reset-btn">Pay</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+.my-class .mat-dialog-container {
+  background-color: #96b370;
+  color: #102215;
+  padding: 5px !important;
+}
+
+.my-dialog-class .mat-dialog-container {
+  background-color: #96b370;
+  color: #102215;
+  padding: 5px !important;
+  max-width: 90%;
+}

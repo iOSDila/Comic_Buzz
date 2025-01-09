@@ -1,0 +1,14 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 5
+    },
+    "auditLog": "C:\\Users\\Dilshan\\Desktop\\Comic bu\\Comic_Book_Aggregation_Service\\logs\\.1fbe5f418c2ed9957d26da43675c3bf56c442d42-audit.json",
+    "files": [
+        {
+            "date": 1600779603833,
+            "name": "C:\\Users\\Dilshan\\Desktop\\Comic bu\\Comic_Book_Aggregation_Service\\logs\\aggregation_service_info-2020-09.log",
+            "hash": "b1091423eb4cf849396162c295aa026a"
+        }
+    ]
+}

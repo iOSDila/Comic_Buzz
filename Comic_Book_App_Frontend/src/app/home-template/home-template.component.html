@@ -1,0 +1,16 @@
+<div class="home-body">
+  <div *ngIf="!mobile" class="nav-bar">
+    <app-left-nav-bar></app-left-nav-bar>
+  </div>
+  <div class="align-home">
+      <app-header></app-header>
+    <div class="content rounded">
+      <!-- background image -->
+      <div class="home-bg-img"></div>
+
+      <!-- content -->
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+.card-align {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 0;
+}
+
+.badge-light {
+  background-color: transparent;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.background-round {
+  padding: 12px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .18);
+}
+
+.btn {
+  color: white;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.btn-margin {
+  margin: 20px 0px;
+}
+
+.sidebar-card {
+  background-color: #212121;
+  color: white;
+}
+
+.app-logo {
+  width: 218px;
+  height: 164px;
+}
+
+.header-title {
+  color: white;
+  font-size: 30px;
+  margin-bottom: 0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  justify-content: center;
+  display: flex;
+}
+
+hr {
+  visibility: hidden;
+}
+
+.clickable {
+  position: relative;
+  z-index: 3;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+.side-bar-text {
+  padding: 10px;
+  background-color: #636b59;
+  color: black;
+  margin: 25px 0px;
+}

@@ -1,0 +1,136 @@
+.card-header {
+  background-color: #102215;
+}
+
+.card {
+  border: none;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.background-round {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.profile-icon {
+  float: right;
+}
+
+.btn {
+  color: white;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.clickable {
+  position: relative;
+  z-index: 2;
+}
+
+.back {
+  float: left;
+}
+
+/* upgrade */
+.modal-content {
+  background-color: #102215;
+  color: white;
+}
+
+.modal-title {
+  margin-left: auto;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  font-size: 20px;
+}
+
+.modal-margin {
+  margin-left: 43%;
+}
+
+.modal-dialog {
+  max-width: 30%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.reset-btn {
+  background-color: #96b370;
+  color: #102215;
+  font-size: 1.25rem;
+  margin: 1rem;
+  border: 1px solid white;
+}
+
+ul {
+  margin-top: 1rem;
+}
+
+.upgrade-price {
+  display: flex;
+  align-items: baseline;
+}
+
+.upgrade-price-item {
+  font-size: 40px;
+  margin-right: 5px;
+}
+
+.upgrade-card-avatar {
+  max-width: 130px;
+  margin: -75px auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.upgrade-img {
+  width: 100%;
+  height: auto;
+}
+
+.upgrade-list-item {
+  list-style-image: url('../../assets/images/check.png');
+}
+
+.close {
+  color: #96b370
+}
+
+/* dialog popup */
+
+.dialog-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #102215;
+  color: white
+}
+
+.dialog-content {
+  background-color: #96b370;
+  margin: 0px;
+  color: #102215;
+  padding: 0 24px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.dialog-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}

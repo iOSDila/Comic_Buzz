@@ -1,0 +1,60 @@
+.material-icons {
+  font-family: 'Material Icons';
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+}
+
+.background-round {
+  padding: 15px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .18);
+}
+
+.item-profile {
+  background-image: linear-gradient(to bottom right, #1B5E20, #43A047, #00695C);
+}
+
+.item-story {
+  background-image: linear-gradient(to bottom right, #004D40, #093d38, #00695C);
+}
+
+.item-create {
+  background-image: linear-gradient(to bottom right, #2E8B57, #20B2AA, #32CD32);
+}
+
+.item-manage-user {
+  background-image: linear-gradient(to bottom right, #004D40, #00897B, #044228);
+}
+
+.card-item-body {
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  color: white;
+}
+
+.border {
+  border-width: 3px !important;
+  padding: 10px;
+}
+
+hr {
+  visibility: hidden;
+
+}
+
+.clickable {
+  position: relative;
+  z-index: 2;
+}
+
+.card-deck {
+  margin-top: 50px;
+}
+
+.disabled {
+  pointer-events: none;
+}

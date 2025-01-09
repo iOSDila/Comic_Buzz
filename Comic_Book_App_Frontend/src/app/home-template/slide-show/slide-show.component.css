@@ -1,0 +1,8 @@
+.slider-image {
+  width: inherit;
+  height: fit-content;
+}
+
+.border {
+  border-width: 3px !important;
+}

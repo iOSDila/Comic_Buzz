@@ -1,0 +1,96 @@
+<div *ngIf="!storyCreation" class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-1">
+      <form class="form-inline">
+        <input type="text" [(ngModel)]="searchText" class="form-control search-bar-input" id="search" name="search"
+          placeholder="Search">
+        <button class="btn btn-style search-btn btn-rounded" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+  <div class="align-images">
+    <div *ngFor="let image of assetsImages | tableSearch:searchText" (click)="story(image.job_id)">
+      <div class="card">
+        <div class="card-body text-center">
+          <img [src]="image.url" class="story-images">
+        </div>
+        <div class="card-footer text-center">
+          {{image.name}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Story Creation Process -->
+<div *ngIf="storyCreation">
+  <ul class="nav nav-tabs nav-justified clickable ul" id="myTabJust" role="tablist">
+    <li *ngIf="isAdmin && !isPage" class="nav-item">
+      <a class="nav-link" id="build-tab-just" data-toggle="tab" href="#build-just" role="tab" aria-controls="build-just"
+        aria-selected="true">Build Story</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="story-tab-just" data-toggle="tab" href="#story-just" role="tab"
+        aria-controls="story-just" aria-selected="false">Story</a>
+    </li>
+  </ul>
+  <div class="tab-content card-content pt-5" id="myTabContentJust">
+    <div class="tab-pane fade" id="build-just" role="tabpanel" aria-labelledby="build-tab-just">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5 offset-md-1">
+            <p class="text-color">Comic Character</p>
+            <img [src]="ccrImageToShow" height="200">
+          </div>
+          <div class="col-md-6">
+            <p class="text-color">Object Detection</p>
+            <img [src]="codImageToShow" height="200">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 offset-md-1 thumbnail">
+            <p class="text-color">Balloon Segmentation</p>
+            <img [src]="imageToShow" height="200">
+          </div>
+          <div class="col-md-6 thumbnail">
+            <p class="text-color">Text Extraction</p>
+            <div class="border rounded text-color">
+              <p>
+                {{ocr_extract_text}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade show active" id="story-just" role="tabpanel" aria-labelledby="story-tab-just">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <p class="text-color">Text Story</p>
+            <div class="border rounded text-color thumbnail">
+              <p>{{text_story}}</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <p class="text-color">Audio Story</p>
+            <img class="border bg-border" src="../../assets/images/play.png" (click)="playAudio()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup -->
+<ng-template #storyStatus>
+  <div mat-dialog-title class="dialog-title">
+    {{status}}
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{message}}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-action">
+    <button mat-button class="reset-btn" (click)="closeDialog()" cdkFocusInitial>OK</button>
+  </div>
+</ng-template>

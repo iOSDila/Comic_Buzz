@@ -1,0 +1,65 @@
+<div class="card">
+  <div class="card-header">
+    <img class="clickable" (click)="back()" src="../../assets/images/back.png">
+    <div class="profile-icon clickable">
+      <i class="material-icons background-round image">
+        <img class="image" src="../../assets/images/home.png" alt="Card image cap" (click)="home()">
+      </i>
+      <i class="material-icons background-round" routerLink="/home-template/profile">
+        <img class="image" src="../../assets/images/user2.png" alt="Card image cap">
+      </i>
+      <i class="material-icons background-round image">
+        <button id="openModalButton" [hidden]="true" data-toggle="modal" data-target="#modalCenter">Open Modal</button>
+        <img class="image" src="../../assets/images/upgrade.png" alt="Card image cap" (click)="openUpgradeModel()">
+      </i>
+      <button type="button" class="btn" (click)="signOut()">
+        Sign Out
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalCenter" tabindex="-1" role="dialog" aria-labelledby="modalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-margin" role="document">
+    <div class="modal-content">
+      <div class="upgrade-card-avatar">
+        <a><img class="upgrade-img" src="../../../assets/images/crown.png"></a>
+      </div>
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalLongTitle">
+          <p>Save Story & Hear later</p>
+        </h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="upgrade-price">
+          <img src="../../../assets/images/dollar.png">
+          <div class="upgrade-price-item">30 </div>
+          <div>per year</div>
+        </div>
+        <div>Upgrade the account and enjoy the premium level rewards.</div>
+        <ul>
+          <li class="upgrade-list-item">Save many created stories</li>
+        </ul>
+        <button (click)="pay()" class="btn reset-btn" data-dismiss="modal">Upgrade</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- popup -->
+<ng-template #upgrade>
+  <div mat-dialog-title class="dialog-title">
+    Information
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>You are a premium user</p>
+  </div>
+  <div mat-dialog-actions class="dialog-action">
+    <button mat-button class="reset-btn" (click)="closeDialog()" cdkFocusInitial>OK</button>
+  </div>
+</ng-template>

@@ -1,0 +1,119 @@
+.card {
+  background: #102215;
+}
+
+.card-profile {
+  margin-top: 10%;
+  margin-bottom: 30px;
+}
+
+.card-avatar {
+  max-width: 130px;
+  margin: 10% auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  color: white;
+  padding: .9375rem 20px;
+}
+
+.row {
+  width: 100%;
+}
+
+.form-control {
+  background-color: #96b370;
+  color: #102215;
+}
+
+.reset-btn {
+  background-color: #636b59;
+  color: white;
+}
+
+.reset-pwd-btn {
+  background-image: url(../../../assets/images/reset1.png);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.clickable {
+  position: relative;
+  z-index: 2;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.modal-content {
+  background-color: #102215;
+  color: white;
+}
+
+.reset-icon {
+  padding-top: 35px;
+}
+
+.modal-margin {
+  margin-left: 42%;
+}
+
+.nav-bar {
+  margin: 20% 0 0 10%;
+}
+
+.nav-item {
+  display: flex;
+}
+
+.nav-item-body {
+  color: white;
+  margin: 0 20px;
+  width: 110px;
+}
+
+.card-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.error {
+  font-size: 80%;
+  color: crimson;
+}
+
+.dialog-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #102215;
+  color: white
+}
+
+.dialog-content {
+  background-color: #96b370;
+  margin: 0px;
+  color: #102215;
+  padding: 0 24px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.dialog-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}

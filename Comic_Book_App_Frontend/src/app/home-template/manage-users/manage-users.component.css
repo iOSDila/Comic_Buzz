@@ -1,0 +1,161 @@
+.card-profile {
+  margin-top: 4%;
+  margin-bottom: 30px;
+}
+
+.card-avatar {
+  max-width: 130px;
+  margin: 10% auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  color: white;
+  padding: .9375rem 20px;
+}
+
+.form-control {
+  background-color: #96b370;
+  color: #102215;
+}
+
+.card {
+  background: #102215;
+  margin-bottom: 0
+}
+
+.align-cell {
+  text-align: center;
+}
+
+.btn-style {
+  background-color: #636b59;
+  color: white;
+}
+
+.search-btn {
+  margin-left: 10px;
+}
+
+.search-bar {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.search-bar-input {
+  width: 410px;
+}
+
+td {
+  color: #102215 !important;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.reset-pwd-btn {
+  background-image: url(../../../assets/images/reset1.png);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.modal-content {
+  background-color: #102215;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #636b59;
+  color: white;
+}
+
+[type=button]:focus {
+  outline: none !important;
+}
+
+.table-text-color {
+  color: white;
+}
+
+.table-header-bg-color {
+  background-color: #102215;
+}
+
+.table-body-bg-color {
+  background-color: #636b59;
+}
+
+.reset-icon {
+  padding-top: 35px;
+}
+
+.modal-margin {
+  margin-left: 42%;
+}
+
+.form-group {
+  margin-bottom: 6px;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.nav-bar {
+  margin: 20% 0 0 10%;
+}
+
+.nav-item {
+  display: flex;
+}
+
+.nav-item-body {
+  color: white;
+  margin: 0 20%;
+}
+
+.card-parent {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header{
+  padding: 10px;
+}
+
+.modal-title {
+  line-height: 1;
+}
+
+.dialog-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #102215;
+  color: white
+}
+
+.dialog-content {
+  background-color: #96b370;
+  margin: 0px;
+  color: #102215;
+  padding: 0 24px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.dialog-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}

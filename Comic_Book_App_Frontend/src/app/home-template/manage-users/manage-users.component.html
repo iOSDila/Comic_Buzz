@@ -1,0 +1,225 @@
+<div class="container search-bar">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="form-inline">
+        <input type="text" [(ngModel)]="searchText" class="form-control search-bar-input" id="search" name="search"
+          placeholder="Search">
+        <button class="btn btn-style search-btn btn-rounded" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- table -->
+<div class="container">
+  <div class="row" style="height: 208px; overflow-y: scroll;">
+    <div class="col-md-12">
+      <table class="table table-hover table-text-color">
+        <thead class="table-header-bg-color">
+          <tr>
+            <th class="align-cell" scope="col">Name</th>
+            <th class="align-cell" scope="col">User Name</th>
+            <th class="align-cell" scope="col">Email</th>
+            <th class="align-cell" scope="col">User Type</th>
+            <th class="align-cell" scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-body-bg-color">
+          <tr *ngFor="let user of Users | tableSearch:searchText">
+            <td class="align-cell">{{user.name}}</td>
+            <td class="align-cell">{{user.username}}</td>
+            <td class="align-cell">{{user.email}}</td>
+            <td class="align-cell">{{user.role}}</td>
+            <td>
+              <button type="button" class="btn" (click)="editUser(user)">
+                <i><img src="../../assets/images/edit1.png"></i>
+              </button>
+              <button type="button" class="btn" (click)="deleteUser(user)">
+                <i><img src="../../assets/images/trash.png"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- profile -->
+<div class="container clickable">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="card card-profile">
+        <div class="row card-parent">
+          <div class="col-md-3 card-item">
+            <!-- Profile Picture -->
+            <div class="card-avatar">
+              <a><img class="img" src="../../assets/images/marc.jpg"></a>
+            </div>
+            <!-- Navigation Bar -->
+            <nav class="nav flex-column nav-bar" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active nav-item" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                role="tab" aria-controls="v-pills-profile" aria-selected="true">
+                <img src="../../assets/images/user2.png" class="d-inline-block align-top" alt="">
+                <div class="nav-item-body">Profile</div>
+                <img src="../../assets/images/arrow.png" class="d-inline-block align-top" alt="">
+              </a>
+              <a class="nav-link nav-item" id="v-pills-reset-tab" data-toggle="pill" href="#v-pills-reset" role="tab"
+                aria-controls="v-pills-reset" aria-selected="false">
+                <img src="../../assets/images/password1.png" class="d-inline-block align-top" alt="">
+                <div class="nav-item-body">Password</div>
+                <img src="../../assets/images/arrow.png" class="d-inline-block align-top" alt="">
+              </a>
+            </nav>
+          </div>
+          <!-- Navigation Content -->
+          <div class=" col-md-9 card-body">
+            <div class="tab-content" id="v-pills-tabContent">
+              <!-- Edit Profile -->
+              <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel"
+                aria-labelledby="v-pills-profile-tab">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Edit Profile</h5>
+                  </div>
+                  <div class="modal-body pb-0">
+                    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" formControlName="name" class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                              <div *ngIf="f.name.errors.required">Name is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" formControlName="username" class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                              <div *ngIf="f.username.errors.required">User Name is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="text" formControlName="phone_num" class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f.phone_num.errors }" />
+                            <div *ngIf="submitted && f.phone_num.errors" class="invalid-feedback">
+                              <div *ngIf="f.phone_num.errors.required">Phone Number is required</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>User Type</label>
+                            <select id="inputUserType" class="form-control" formControlName="role">
+                              <option selected>Choose...</option>
+                              <option>General User</option>
+                              <option>Premium User</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" formControlName="email" class="form-control"
+                              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                              <div *ngIf="f.email.errors.required">Email is required</div>
+                              <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-2 offset-md-3">
+                          <div class="form-group">
+                            <button type="submit" class="btn reset-btn">Update Profile</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Reset Password -->
+              <div class="tab-pane fade" id="v-pills-reset" role="tabpanel" aria-labelledby="v-pills-reset-tab">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Reset Password</h5>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+                      <div class="row offset-md-1">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label> Current Password</label>
+                            <input type="password" formControlName="currentPassword" class="form-control"
+                              [ngClass]="{ 'is-invalid': reset && r.currentPassword.errors }" />
+                            <div *ngIf="reset && r.currentPassword.errors" class="invalid-feedback">
+                              <div *ngIf="r.currentPassword.errors.required">Current Password is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row offset-md-1">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" formControlName="newPassword" class="form-control"
+                              [ngClass]="{ 'is-invalid': reset && r.newPassword.errors }" />
+                            <div *ngIf="reset && r.newPassword.errors" class="invalid-feedback">
+                              <div *ngIf="r.newPassword.errors.required">New Password is required</div>
+                              <div *ngIf="r.newPassword.errors.minlength">Password must be at least 6 characters</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row offset-md-1">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" formControlName="confirmPassword" class="form-control"
+                              [ngClass]="{ 'is-invalid': reset && r.confirmPassword.errors }" />
+                            <div *ngIf="reset && r.confirmPassword.errors" class="invalid-feedback">
+                              <div *ngIf="r.confirmPassword.errors.required">Confirm Password is required</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-3 offset-md-9">
+                          <div class="form-group">
+                            <button type="submit" class="btn reset-btn">Reset</button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #dialogSuccess>
+  <div mat-dialog-title class="dialog-title">
+    {{status}}
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{message}}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-action">
+    <button mat-button class="reset-btn" (click)="closeDialog()" cdkFocusInitial>OK</button>
+  </div>
+</ng-template>

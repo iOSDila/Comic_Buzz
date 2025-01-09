@@ -1,0 +1,57 @@
+.card {
+  background: #102215;
+}
+
+.card-profile {
+  margin-top: 4%;
+  margin-bottom: 30px;
+}
+
+.card-avatar {
+  max-width: 15%;
+  margin: -50px auto 0;
+  overflow: hidden;
+}
+
+.img {
+  width: 75%;
+  height: auto;
+}
+
+.card-body {
+  color: white;
+  padding: .9375rem 20px;
+}
+
+.row {
+  width: 100%;
+}
+
+.form-control {
+  background-color: #96b370;
+  color: #102215;
+}
+
+.reset-btn {
+  background-color: #636b59;
+  color: white;
+}
+
+.clickable {
+  position: relative;
+  z-index: 2;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.tooltip {
+  background-color: #636b59;
+  font-size: 12px;
+  color: red
+}
+
+.payment-title {
+  color: white;
+}

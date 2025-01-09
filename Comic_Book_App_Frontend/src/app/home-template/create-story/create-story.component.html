@@ -1,0 +1,152 @@
+<ul class="nav nav-tabs nav-justified clickable ul" id="myTabJust" role="tablist">
+  <li class="nav-item li">
+    <a class="nav-link active" id="upload-tab-just" data-toggle="tab" href="#upload-just" role="tab"
+      aria-controls="upload-just" aria-selected="true">Create Story</a>
+  </li>
+  <li *ngIf="isAdmin" class="nav-item li">
+    <a class="nav-link" id="build-tab-just" data-toggle="tab" href="#build-just" role="tab" aria-controls="build-just"
+      aria-selected="false">Research Components</a>
+  </li>
+</ul>
+<div class="tab-content card pt-4" id="myTabContentJust">
+  <div class="tab-pane fade show active" id="upload-just" role="tabpanel" aria-labelledby="upload-tab-just">
+    <div class="container">
+      <p class="text-color">Upload your comic sources</p>
+      <!-- image upload -->
+      <input id="file" class="choose-file" type="file" (change)="onFileSelected($event)">
+      <div>
+        <img class="thumbnail" [src]="url" height="200" *ngIf="url">
+        <div class="text-color">{{loading}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 text-color d-flex mt-3">
+          Story Name
+          <input type="text" class="story-name" [(ngModel)]="storyName">
+        </div>
+        <div class="col-md-4">
+          <form class="form-inline">
+            <div style="display: flex;">
+              <button class="btn btn-style search-btn btn-rounded" (click)="upload()" id="btnUpload" type="submit">
+                Create Story
+              </button>
+              <button class="btn btn-style search-btn btn-rounded" (click)="uploadPage()" id="btnUpload" type="submit">
+                Create Story with page
+              </button>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="build-just" role="tabpanel" aria-labelledby="build-tab-just">
+    <div class="container">
+      <div class="d-flex flex-row research">
+        <div class="research-upload-item">
+
+          <!-- upload image or text -->
+
+          <ul class="nav nav-tabs nav-justified clickable ul input-image-text" id="inputImageOrText" role="tablist">
+            <li class="nav-item li">
+              <a class="nav-link active" id="upload-image-tab-just" data-toggle="tab" href="#upload-image-just"
+                role="tab" aria-controls="upload-image-just" aria-selected="true">Upload Image</a>
+            </li>
+            <li class="nav-item li">
+              <a class="nav-link" id="input-text-tab-just" data-toggle="tab" href="#input-text-just" role="tab"
+                aria-controls="input-text-just" aria-selected="false">Input text</a>
+            </li>
+          </ul>
+
+          <div class="tab-content card pt-4" id="inputImageOrTextContent">
+            <div class="tab-pane fade show active" id="upload-image-just" role="tabpanel"
+              aria-labelledby="upload-image-just">
+              <div class="container px-0">
+                <div class="research-upload-file-item py-0 px-3">
+                  <p class="text-color research-upload-file-item-title">Upload your comic sources</p>
+                  <!-- image upload -->
+                  <input id="file" class="choose-file" type="file" multiple (change)="onImageFileSelected($event)">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <img [src]="imageUrl" class="my-1" height="200" *ngIf="imageUrl">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="input-text-just" role="tabpanel" aria-labelledby="input-text-just">
+              <div class="container px-0 research-upload-result-item">
+                <div class="text-color ml-4">Insert Text</div>
+                <textarea class="upload-text" (change)="changedInput()" [(ngModel)]="inputText"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="isProgress" style="color: red; padding-top: 5%;">{{inProgress}}</div>
+
+          <div *ngIf="!isProgress" class="research-upload-result-item text-color">
+            <p style="padding-left: 5%; margin-bottom: 0;">Output : </p>
+            <div *ngIf="isText && !isPanel && !isImage" style="padding-left: 5%; padding-top: 4%;">{{resultText}}</div>
+            <div *ngIf="isImage && !isText && !isPanel" style="padding-left: 5%;">
+              <img [src]="resultImage" height="200">
+            </div>
+            <div *ngIf="isPanel && !isText && !isImage"
+              style="display: flex; overflow-y: auto; padding-left: 5%; ">
+              <div *ngFor="let image of panelResults">
+                <img [src]="image" class="story-images" width="200" height="200">
+              </div>
+            </div>
+            <div *ngIf="!isText && !isPanel && !isImage"
+              style="justify-content: center; display: flex;padding-left: 5%; padding-top: 4%;">
+              <img class="border bg-border mt-0" src="../../assets/images/play.png" (click)="play()">
+            </div>
+          </div>
+        </div>
+        <div class="research-component-item">
+          <ul class="flex-column">
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="extractPanel()">Panel
+                Extraction</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="recogniseCharacters()">Comic Character Recognition</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="detectObjects()">Comic Object Detection</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="recogniseText()">Speech Text Recognition</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="segmentBalloons()">Balloon Segmentation</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected" class="research-component-list-item-btn"
+                (click)="buildStory()">Story Building</button>
+            </li>
+            <li class="research-component-list-item">
+              <button type="button" [disabled]="!isSelected && isTTSSelected" class="research-component-list-item-btn"
+                (click)="textToSpeech()">Text to Speech</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #uploadSuccess>
+  <div mat-dialog-title class="dialog-title">
+    {{status}}
+  </div>
+  <div mat-dialog-content class="dialog-content">
+    <p>{{message}}</p>
+  </div>
+  <div mat-dialog-actions class="dialog-action">
+    <button mat-button class="reset-btn" (click)="closeDialog()" cdkFocusInitial>OK</button>
+  </div>
+</ng-template>

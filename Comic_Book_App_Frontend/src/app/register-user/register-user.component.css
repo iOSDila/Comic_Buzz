@@ -1,0 +1,112 @@
+.card {
+  background: #102215;
+}
+
+.card-profile {
+  margin-top: 10%;
+  margin-bottom: 30px;
+}
+
+.card-avatar {
+  max-width: 130px;
+  margin: -50px auto 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  color: white;
+  padding: .9375rem 20px;
+}
+
+.row {
+  width: 100%;
+}
+
+.form-control {
+  background-color: #96b370;
+  color: #102215;
+}
+
+.reset-btn {
+  background-color: #636b59;
+  color: white;
+}
+
+.clickable {
+  position: relative;
+  z-index: 2;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+/*  */
+.home-bg-img {
+  background-image: url(../../assets/images/forest2.jpg);
+  background-size: cover;
+  background-position: 50%;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  display: block;
+  top: 0;
+  left: 0;
+}
+
+.home-body {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-bar {
+  width: 20%;
+}
+
+.align-home {
+  background-color: #102215;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+.dialog-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+  background-color: #102215;
+  color: white
+}
+
+.dialog-content {
+  background-color: #96b370;
+  margin: 0px;
+  color: #102215;
+  padding: 0 24px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.dialog-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+}
